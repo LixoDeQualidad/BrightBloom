@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://c2328ye3vm8cf"]
+
+[ext_resource type="Texture2D" uid="uid://dt65n63u13dpq" path="res://sprites/esseaqui/Novos/cogumelo/cogumelo_cura.png" id="1_cuva1"]
+[ext_resource type="Script" uid="uid://bd0s2vlb87tte" path="res://scripts/Itens/erva.gd" id="1_gy1e6"]
+[ext_resource type="Texture2D" uid="uid://c7j6u7rhiuq6j" path="res://sprites/esseaqui/Novos/cogumelo/cogumelo_cortado_1.png" id="3_pwn7w"]
+[ext_resource type="Texture2D" uid="uid://bcnkp6rnou5oc" path="res://sprites/esseaqui/Novos/cogumelo/cogumelo_cortado_2.png" id="4_ebmd1"]
+[ext_resource type="Texture2D" uid="uid://cogcbm35u0vg6" path="res://sprites/esseaqui/Novos/cogumelo/cogumelo_idle.png" id="5_pwn7w"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vkf3h"]
+radius = 12.0
+height = 90.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ebmd1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_cuva1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pwn7w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ebmd1")
+}],
+"loop": false,
+"name": &"cortada",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_cuva1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pwn7w")
+}],
+"loop": true,
+"name": &"idle c",
+"speed": 2.0
+}]
+
+[node name="Erva" type="StaticBody2D" unique_id=1256044 groups=["erva"]]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_gy1e6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1747590601]
+shape = SubResource("CapsuleShape2D_vkf3h")
+
+[node name="CogumeloCura" type="Sprite2D" parent="." unique_id=1714673716]
+position = Vector2(-5.9604645e-08, 0)
+scale = Vector2(0.5019532, 0.765625)
+texture = ExtResource("1_cuva1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1129507502]
+position = Vector2(-3.5000024, 2.3841858e-06)
+scale = Vector2(0.6171875, 0.75)
+sprite_frames = SubResource("SpriteFrames_ebmd1")
+animation = &"cortada"
+autoplay = "idle c"
+frame = 1
+frame_progress = 0.51645684

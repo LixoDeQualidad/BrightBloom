@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://cx17ur3uq7c7p"]
+
+[ext_resource type="Script" uid="uid://iie7dra831g8" path="res://Menu/main_menu.gd" id="1_2fwvj"]
+[ext_resource type="Texture2D" uid="uid://wvbby273v7sf" path="res://Menu/Menu .jpg" id="3_0iwki"]
+[ext_resource type="FontFile" uid="uid://c8ebu8l3paf7e" path="res://Menu/Anaktoria/Anaktoria.otf" id="3_2fwvj"]
+[ext_resource type="Texture2D" uid="uid://dyacwvg5gbno3" path="res://Menu/BUTTERFLY.png" id="4_0iwki"]
+
+[node name="Main Menu" type="Control" unique_id=1070726384]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_right = 300.0
+offset_bottom = 200.0
+script = ExtResource("1_2fwvj")
+
+[node name="Label" type="Label" parent="." unique_id=1177248204]
+layout_mode = 0
+offset_right = 619.0
+offset_bottom = 367.0
+theme_override_fonts/font = ExtResource("3_2fwvj")
+
+[node name="PrimeiroMenu" type="Sprite2D" parent="Label" unique_id=1316638981]
+position = Vector2(312, 181.50002)
+scale = Vector2(0.31875, 0.33796299)
+texture = ExtResource("3_0iwki")
+
+[node name="BtnJogar" type="Button" parent="Label" unique_id=393955512]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 118.0
+offset_right = 215.0
+offset_bottom = 168.0
+theme_override_fonts/font = ExtResource("3_2fwvj")
+text = "JOGAR
+
+"
+flat = true
+clip_text = true
+expand_icon = true
+
+[node name="Btn Sair" type="Button" parent="Label" unique_id=730608532]
+layout_mode = 0
+offset_left = 127.0
+offset_top = 151.0
+offset_right = 195.0
+offset_bottom = 192.0
+theme_override_fonts/font = ExtResource("3_2fwvj")
+text = "SAIR
+
+"
+flat = true
+alignment = 2
+expand_icon = true
+
+[node name="Btn Opcoes" type="Button" parent="Label" unique_id=581263291]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 183.0
+offset_right = 208.0
+offset_bottom = 220.0
+theme_override_fonts/font = ExtResource("3_2fwvj")
+text = "OPÇÕES
+
+"
+flat = true
+alignment = 2
+expand_icon = true
+
+[node name="Butterfly" type="Sprite2D" parent="Label" unique_id=46586502]
+position = Vector2(213.99998, 144)
+scale = Vector2(0.07257735, 0.06644236)
+texture = ExtResource("4_0iwki")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=911392004]
+position = Vector2(312, 182)
+zoom = Vector2(0.49, 0.55)
+
+[connection signal="pressed" from="Label/BtnJogar" to="." method="_on_btn_jogar_pressed"]
+[connection signal="pressed" from="Label/Btn Sair" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Label/Btn Sair" to="." method="_on_btn_sair_pressed"]
+[connection signal="pressed" from="Label/Btn Opcoes" to="." method="_on_btn_opções_pressed"]
+[connection signal="pressed" from="Label/Btn Opcoes" to="." method="_on_btn_opcoes_pressed"]
+[connection signal="pressed" from="Label/Btn Opcoes" to="." method="_on_button_pressed"]

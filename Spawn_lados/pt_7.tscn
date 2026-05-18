@@ -1,0 +1,96 @@
+[gd_scene format=4 uid="uid://20s5xnf08qrw"]
+
+[ext_resource type="TileSet" uid="uid://ckf2afy4m5an6" path="res://tiles/decoration.tres" id="1_scxyh"]
+[ext_resource type="TileSet" uid="uid://ci6yocecub5y3" path="res://tiles/terrain.tres" id="3_eyqol"]
+[ext_resource type="Script" uid="uid://obnd2bc2cbug" path="res://scripts/portals/portal_12.gd" id="6_d15cv"]
+[ext_resource type="PackedScene" uid="uid://cdtr6sp6pckop" path="res://entities/camera.tscn" id="6_s0s63"]
+[ext_resource type="Script" uid="uid://c4b4yn8j8x1jl" path="res://scripts/portals/portal_13.gd" id="7_cpter"]
+[ext_resource type="PackedScene" uid="uid://b4uyanguafauh" path="res://entities/player.tscn" id="7_l06pg"]
+[ext_resource type="Texture2D" uid="uid://dnqq6jgh0tcq8" path="res://sprites/esseaqui/Fantasy Swamp Forest/Free/BG_3/BG_3.png" id="7_u6mrh"]
+[ext_resource type="Texture2D" uid="uid://dckaogivtaxax" path="res://sprites/esseaqui/Fantasy Swamp Forest/Free/BG_2/BG_2.png" id="8_cjv0q"]
+[ext_resource type="Texture2D" uid="uid://b771fb0smoad2" path="res://sprites/esseaqui/Fantasy Swamp Forest/Free/BG_1/BG_1.png" id="9_x2dty"]
+[ext_resource type="FontFile" uid="uid://c8ebu8l3paf7e" path="res://Menu/Anaktoria/Anaktoria.otf" id="10_cjv0q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u6mrh"]
+size = Vector2(20, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cjv0q"]
+size = Vector2(20, 78)
+
+[node name="pt_7_esquerda" type="Node2D" unique_id=1594452758]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=969283661]
+color = Color(0, 0, 0, 1)
+
+[node name="fundo" type="ParallaxBackground" parent="." unique_id=1162943237]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="fundo" unique_id=543059585]
+light_mask = 1023
+motion_scale = Vector2(0.1, 0.1)
+
+[node name="Bg3" type="Sprite2D" parent="fundo/ParallaxLayer" unique_id=875241177]
+position = Vector2(512.49994, 85.5)
+scale = Vector2(0.5004883, 0.58250004)
+texture = ExtResource("7_u6mrh")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="fundo" unique_id=628129963]
+light_mask = 1023
+motion_scale = Vector2(0.3, 0.3)
+
+[node name="Bg2" type="Sprite2D" parent="fundo/ParallaxLayer2" unique_id=758932087]
+position = Vector2(510, 87)
+scale = Vector2(0.55916345, 0.56)
+texture = ExtResource("8_cjv0q")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="fundo" unique_id=1678997419]
+light_mask = 1023
+motion_scale = Vector2(0.5, 0.5)
+
+[node name="Bg1" type="Sprite2D" parent="fundo/ParallaxLayer3" unique_id=295125648]
+position = Vector2(514, 88.50001)
+scale = Vector2(0.5298082, 0.59250003)
+texture = ExtResource("9_x2dty")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="fundo" unique_id=539232685]
+color = Color(0, 0, 0, 1)
+
+[node name="TileMaps" type="Node" parent="." unique_id=1810591031]
+
+[node name="Decoration" type="TileMapLayer" parent="TileMaps" unique_id=1202946375]
+tile_set = ExtResource("1_scxyh")
+
+[node name="Terrain" type="TileMapLayer" parent="TileMaps" unique_id=2051895733]
+tile_map_data = PackedByteArray("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")
+tile_set = ExtResource("3_eyqol")
+
+[node name="Camera" parent="." unique_id=1231619477 instance=ExtResource("6_s0s63")]
+limit_top = -30
+limit_right = 1020
+
+[node name="Player" parent="." unique_id=1738544723 instance=ExtResource("7_l06pg")]
+position = Vector2(18, 31)
+
+[node name="portal_12" type="Area2D" parent="." unique_id=1462049052]
+collision_mask = 3
+script = ExtResource("6_d15cv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="portal_12" unique_id=1859969516]
+position = Vector2(1023, 126)
+shape = SubResource("RectangleShape2D_u6mrh")
+
+[node name="portal_13" type="Area2D" parent="." unique_id=1406029216]
+collision_mask = 3
+script = ExtResource("7_cpter")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="portal_13" unique_id=1144876506]
+position = Vector2(-8, 32)
+shape = SubResource("RectangleShape2D_cjv0q")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2007556661]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=636680103]
+offset_left = 261.0
+offset_top = 1.0
+offset_right = 301.0
+offset_bottom = 24.0
+theme_override_fonts/font = ExtResource("10_cjv0q")

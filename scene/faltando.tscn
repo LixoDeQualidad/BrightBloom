@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dd1v6xr5v24s1"]
+
+[ext_resource type="Script" uid="uid://s24hrekpbi7b" path="res://scripts/faltando.gd" id="1_wtiqx"]
+[ext_resource type="FontFile" uid="uid://c8ebu8l3paf7e" path="res://Menu/Anaktoria/Anaktoria.otf" id="1_y662j"]
+[ext_resource type="Texture2D" uid="uid://ctj37g04obqrb" path="res://Menu/imagem_2026-03-25_163916559-removebg-preview.png" id="3_ylbvu"]
+
+[node name="Faltando" type="Control" unique_id=139173971]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wtiqx")
+
+[node name="Label" type="Label" parent="." unique_id=1338120476]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 91.0
+offset_right = 216.0
+offset_bottom = 114.0
+theme_override_fonts/font = ExtResource("1_y662j")
+text = "Agorinha já fica pronto!"
+
+[node name="btn Back" type="Button" parent="Label" unique_id=2099167399]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 49.0
+offset_right = 133.0
+offset_bottom = 83.0
+theme_override_fonts/font = ExtResource("1_y662j")
+text = "Voltar ao game"
+icon = ExtResource("3_ylbvu")
+flat = true
+expand_icon = true
+
+[connection signal="pressed" from="Label/btn Back" to="." method="_on_btn_back_pressed"]

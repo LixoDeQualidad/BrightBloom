@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://8ydxkgbp4omi"]
+
+[ext_resource type="Script" uid="uid://dbdhhcl1cbdi0" path="res://scripts/Itens/item_brilho.gd" id="1_11x66"]
+[ext_resource type="Texture2D" uid="uid://debwqccir3b2r" path="res://sprites/esseaqui/Effect and Bullet 16x16/Water Effect and Bullet 16x16.png" id="2_306w3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4typu"]
+radius = 7.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7tx1"]
+atlas = ExtResource("2_306w3")
+region = Rect2(384, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpvoc"]
+atlas = ExtResource("2_306w3")
+region = Rect2(400, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ed4fx"]
+atlas = ExtResource("2_306w3")
+region = Rect2(416, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7eytb"]
+atlas = ExtResource("2_306w3")
+region = Rect2(432, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twk5h"]
+atlas = ExtResource("2_306w3")
+region = Rect2(432, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7i38u"]
+atlas = ExtResource("2_306w3")
+region = Rect2(416, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxi1j"]
+atlas = ExtResource("2_306w3")
+region = Rect2(400, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bx3us"]
+atlas = ExtResource("2_306w3")
+region = Rect2(384, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c1io0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7tx1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tpvoc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ed4fx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7eytb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_twk5h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7i38u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sxi1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bx3us")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Item_brilho" type="Area2D" unique_id=771628638]
+collision_layer = 8
+collision_mask = 15
+script = ExtResource("1_11x66")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=245735478]
+shape = SubResource("CircleShape2D_4typu")
+debug_color = Color(4.042983e-06, 0.5881858, 0.68830764, 0.41960785)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=733259439]
+position = Vector2(-0.5, 0)
+scale = Vector2(1.0625, 1)
+sprite_frames = SubResource("SpriteFrames_c1io0")
+autoplay = "default"
+frame_progress = 0.54628915
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

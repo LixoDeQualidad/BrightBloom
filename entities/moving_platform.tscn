@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://7dkaekrflgga"]
+
+[ext_resource type="Script" uid="uid://b50chkie1scr5" path="res://scripts/moving_platform.gd" id="1_gp4lh"]
+[ext_resource type="Texture2D" uid="uid://302yoayf8iax" path="res://sprites/Seasonal Tilesets/5 - Misc. universal tiles/Blocks (16 x 16).png" id="1_o5dde"]
+[ext_resource type="Texture2D" uid="uid://pdflnpok4fdy" path="res://sprites/Sprites/platformer_metroidvania/tileset.png" id="2_0q7ip"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gp4lh"]
+size = Vector2(60, 10.0625)
+
+[node name="MovingPlatform" type="AnimatableBody2D" unique_id=1827673218]
+collision_mask = 2
+script = ExtResource("1_gp4lh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1852665674]
+position = Vector2(2.999999, -2)
+scale = Vector2(1, 0.75)
+texture = ExtResource("2_0q7ip")
+region_enabled = true
+region_rect = Rect2(96, 64, 32, 16)
+
+[node name="Target" type="Sprite2D" parent="." unique_id=2024838286]
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("1_o5dde")
+region_enabled = true
+region_rect = Rect2(96, 64, 32, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1988879128]
+position = Vector2(3, -5)
+shape = SubResource("RectangleShape2D_gp4lh")
+one_way_collision = true

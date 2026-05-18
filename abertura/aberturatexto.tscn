@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dmn3f1su248ot"]
+
+[ext_resource type="Script" uid="uid://ca072e5ckbnqo" path="res://abertura/aberturatexto.gd" id="1_lg4nx"]
+[ext_resource type="PackedScene" uid="uid://ue5gqffihhxa" path="res://Spawn_lados/pt_1.tscn" id="2_ql43w"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1837515863]
+process_mode = 3
+script = ExtResource("1_lg4nx")
+target_scene = ExtResource("2_ql43w")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=211935910]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.003921569)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1381262064]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1635.4839
+offset_bottom = 1133.3333
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.155, 0.15)

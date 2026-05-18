@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://bpjpnoitaretg"]
+
+[ext_resource type="FontFile" uid="uid://c8ebu8l3paf7e" path="res://Menu/Anaktoria/Anaktoria.otf" id="1_lsk0y"]
+[ext_resource type="Script" uid="uid://d1fu48bmn22ka" path="res://scripts/opções.gd" id="1_yy4o3"]
+[ext_resource type="Texture2D" uid="uid://bdl4t7qflg62q" path="res://Menu/Menu  (1).jpg" id="2_odw8b"]
+[ext_resource type="Texture2D" uid="uid://dyacwvg5gbno3" path="res://Menu/BUTTERFLY.png" id="4_30wof"]
+
+[node name="Opções" type="Control" unique_id=806546256]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yy4o3")
+
+[node name="Menu(1)" type="Sprite2D" parent="." unique_id=1737708403]
+position = Vector2(150.5, 100.000015)
+scale = Vector2(0.15677083, 0.18333334)
+texture = ExtResource("2_odw8b")
+
+[node name="Label" type="Label" parent="." unique_id=980273456]
+layout_mode = 0
+offset_right = 302.0
+offset_bottom = 198.0
+theme_override_fonts/font = ExtResource("1_lsk0y")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="btn voltar" type="Button" parent="Label" unique_id=1908435573]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 5.0
+offset_right = 71.0
+offset_bottom = 34.0
+theme_override_fonts/font = ExtResource("1_lsk0y")
+theme_override_font_sizes/font_size = 13
+text = "Voltar"
+icon = ExtResource("4_30wof")
+flat = true
+expand_icon = true
+
+[connection signal="pressed" from="Label/btn voltar" to="." method="_on_btn_voltar_pressed"]

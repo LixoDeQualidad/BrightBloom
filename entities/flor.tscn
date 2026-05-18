@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://bi2vi0v4qraob"]
+
+[ext_resource type="Texture2D" uid="uid://bjf0tqd0g4j2b" path="res://sprites/esseaqui/Effect and Bullet 16x16/Green Effect and Bullet 16x16.png" id="1_8n31s"]
+[ext_resource type="Script" uid="uid://c2phg8amf58ob" path="res://scripts/flor.gd" id="1_f2glc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f2glc"]
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2glc"]
+atlas = ExtResource("1_8n31s")
+region = Rect2(480, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cjs2"]
+atlas = ExtResource("1_8n31s")
+region = Rect2(496, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wsttv"]
+atlas = ExtResource("1_8n31s")
+region = Rect2(512, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_davtw"]
+atlas = ExtResource("1_8n31s")
+region = Rect2(528, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtne3"]
+atlas = ExtResource("1_8n31s")
+region = Rect2(544, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vnqb"]
+atlas = ExtResource("1_8n31s")
+region = Rect2(560, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8n31s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2glc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6cjs2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wsttv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_davtw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dtne3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vnqb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="flor" type="Area2D" unique_id=873353368 groups=["LethalArea"]]
+script = ExtResource("1_f2glc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1009519180 groups=["LethalArea"]]
+shape = SubResource("CircleShape2D_f2glc")
+debug_color = Color(0.3895147, 0.60333693, 0.29257393, 0.41960785)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=717415283]
+sprite_frames = SubResource("SpriteFrames_8n31s")
+autoplay = "default"
+frame_progress = 0.1342734
+
+[node name="SelfDestructTimer" type="Timer" parent="." unique_id=911880256]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="SelfDestructTimer" to="." method="_on_self_destruct_timer_timeout"]

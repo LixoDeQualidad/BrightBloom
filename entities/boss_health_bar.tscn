@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bxeslj2krlpjp"]
+
+[ext_resource type="FontFile" uid="uid://c8ebu8l3paf7e" path="res://Menu/Anaktoria/Anaktoria.otf" id="1_a8w35"]
+[ext_resource type="Script" uid="uid://b0awri8bye4yw" path="res://scripts/boss_health_bar.gd" id="1_macb2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_macb2"]
+bg_color = Color(0.5904249, 0.32520857, 0.25503758, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2skse"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="BossHealthBar" type="Control" unique_id=53857941]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_macb2")
+
+[node name="BossHealthProgressBar" type="ProgressBar" parent="." unique_id=564961263]
+layout_mode = 0
+offset_left = 90.0
+offset_right = 204.0
+offset_bottom = 15.0
+theme_override_fonts/font = ExtResource("1_a8w35")
+theme_override_font_sizes/font_size = 7
+theme_override_styles/background = SubResource("StyleBoxFlat_macb2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_2skse")
+max_value = 200.0
+value = 200.0
+
+[node name="BossHealthLabel" type="Label" parent="BossHealthProgressBar" unique_id=800522363]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

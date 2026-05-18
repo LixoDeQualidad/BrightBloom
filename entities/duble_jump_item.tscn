@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://dufk33w38kjgn"]
+
+[ext_resource type="Script" uid="uid://bxoo51tnhcoqa" path="res://scripts/Itens/duble_jump_item.gd" id="1_fqg68"]
+[ext_resource type="Texture2D" uid="uid://gb1c4o830hlr" path="res://sprites/Sprites/platformer_metroidvania/miscellaneous sprites/orb_anim_strip_6.png" id="1_vxlnd"]
+[ext_resource type="Texture2D" uid="uid://dvx6ltoqbif6d" path="res://sprites/Sprites/platformer_metroidvania/miscellaneous sprites/orb_collected_anim_strip_5.png" id="2_fqg68"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_etak1"]
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pool3"]
+atlas = ExtResource("1_vxlnd")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wbji"]
+atlas = ExtResource("1_vxlnd")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gb4sd"]
+atlas = ExtResource("1_vxlnd")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5x4km"]
+atlas = ExtResource("1_vxlnd")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1q55o"]
+atlas = ExtResource("1_vxlnd")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ax0hx"]
+atlas = ExtResource("1_vxlnd")
+region = Rect2(40, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5h1rl"]
+atlas = ExtResource("2_fqg68")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y1r3d"]
+atlas = ExtResource("2_fqg68")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hut8g"]
+atlas = ExtResource("2_fqg68")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2rp5"]
+atlas = ExtResource("2_fqg68")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8n70"]
+atlas = ExtResource("2_fqg68")
+region = Rect2(32, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o0lab"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pool3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wbji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gb4sd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5x4km")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1q55o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ax0hx")
+}],
+"loop": true,
+"name": &"Orb",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5h1rl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y1r3d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hut8g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2rp5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8n70")
+}],
+"loop": false,
+"name": &"Orb coletado",
+"speed": 8.0
+}]
+
+[node name="DubleJumpItem" type="Area2D" unique_id=388913561]
+collision_mask = 3
+script = ExtResource("1_fqg68")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=206319047]
+shape = SubResource("CircleShape2D_etak1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1508231923]
+position = Vector2(0.5000005, 2.3841858e-07)
+scale = Vector2(2.125, 2)
+sprite_frames = SubResource("SpriteFrames_o0lab")
+animation = &"Orb"
+frame_progress = 0.2575163
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

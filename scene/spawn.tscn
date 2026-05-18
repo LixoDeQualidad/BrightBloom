@@ -1,0 +1,54 @@
+[gd_scene format=4 uid="uid://djhf4d37tbci7"]
+
+[ext_resource type="TileSet" uid="uid://ckf2afy4m5an6" path="res://tiles/decoration.tres" id="1_3m3m0"]
+[ext_resource type="TileSet" uid="uid://evyc8spfes4j" path="res://tiles/underwater.tres" id="2_fri61"]
+[ext_resource type="TileSet" uid="uid://ci6yocecub5y3" path="res://tiles/terrain.tres" id="3_qm3w3"]
+[ext_resource type="PackedScene" uid="uid://cdtr6sp6pckop" path="res://entities/camera.tscn" id="4_yys5y"]
+[ext_resource type="PackedScene" uid="uid://b4uyanguafauh" path="res://entities/player.tscn" id="5_g0bjy"]
+[ext_resource type="PackedScene" uid="uid://nm82sifvd23i" path="res://entities/level_end.tscn" id="6_bam3c"]
+[ext_resource type="Texture2D" uid="uid://d1c83tw8vpm1e" path="res://sprites/lá.webp" id="7_fri61"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ci325"]
+size = Vector2(25.25, 74.125)
+
+[node name="Spawn" type="Node2D" unique_id=153756316]
+
+[node name="TileMaps" type="Node" parent="." unique_id=1247291044]
+
+[node name="Decoration" type="TileMapLayer" parent="TileMaps" unique_id=373678665]
+tile_set = ExtResource("1_3m3m0")
+
+[node name="Underwater" type="TileMapLayer" parent="TileMaps" unique_id=104858204 groups=["Water"]]
+z_index = -1
+tile_set = ExtResource("2_fri61")
+
+[node name="Terrain" type="TileMapLayer" parent="TileMaps" unique_id=1634941681]
+tile_map_data = PackedByteArray("AAAAAAwABAAAAAkAAAAGAAwABAAAAAkAAAAHAAwABAAAAAkAAAAIAAwABAAAAAkAAAAJAAwABAAAAAkAAAAKAAwABAAAAAkAAAALAAwABAAAAAkAAAAMAAwABAAAAAkAAAANAAwABAAAAAkAAAAOAAwABAAAAAkAAAAPAAwABAAAAAkAAAAQAAwABAAAAAkAAAARAAwABAAAAAkAAAASAAwABAAAAAkAAAATAAwABAAAAAkAAAAUAAwABAAAAAkAAAAVAAwABAAAAAkAAAAWAAwABAAAAAkAAAAXAAwABAAAAAkAAAAYAAwABAAAAAkAAAAZAAwABAAAAAkAAAAaAAwABAAAAAkAAAAbAAwABAAAAAkAAAAcAAwABAAAAAkAAAAdAAwABAAAAAkAAAAeAAwABAAAAAkAAAABAAwABAAAAAkAAAACAAwABAAAAAkAAAADAAwABAAAAAkAAAAEAAwABAAAAAkAAAAFAAwABAAAAAkAAAA=")
+tile_set = ExtResource("3_qm3w3")
+
+[node name="Camera" parent="." unique_id=48735246 instance=ExtResource("4_yys5y")]
+limit_top = -100
+limit_right = 500
+
+[node name="Player" parent="." unique_id=1808364969 instance=ExtResource("5_g0bjy")]
+position = Vector2(231, 126)
+
+[node name="LevelPass" parent="." unique_id=1843539675 instance=ExtResource("6_bam3c")]
+position = Vector2(541, 139)
+
+[node name="CollisionShape2D" parent="LevelPass" index="0" unique_id=1172605673]
+visible = false
+position = Vector2(-554, -43)
+shape = SubResource("RectangleShape2D_ci325")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelPass" unique_id=1129928062]
+position = Vector2(-33, 17)
+shape = SubResource("RectangleShape2D_ci325")
+debug_color = Color(0, 0.710989, 0.539334, 0.42)
+
+[node name="Lá" type="Sprite2D" parent="." unique_id=2079366584]
+position = Vector2(236.25, 134.125)
+scale = Vector2(0.18724489, 0.07321429)
+texture = ExtResource("7_fri61")
+
+[editable path="LevelPass"]

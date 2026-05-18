@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://1a2j30gg3vlu"]
+
+[ext_resource type="Script" uid="uid://bb3oasqisgri4" path="res://scripts/Itens/erva_2.gd" id="1_4wgp7"]
+[ext_resource type="Texture2D" uid="uid://dt65n63u13dpq" path="res://sprites/esseaqui/Novos/cogumelo/cogumelo_cura.png" id="2_difrr"]
+[ext_resource type="Texture2D" uid="uid://c7j6u7rhiuq6j" path="res://sprites/esseaqui/Novos/cogumelo/cogumelo_cortado_1.png" id="3_aku6x"]
+[ext_resource type="Texture2D" uid="uid://bcnkp6rnou5oc" path="res://sprites/esseaqui/Novos/cogumelo/cogumelo_cortado_2.png" id="4_pdarc"]
+[ext_resource type="Texture2D" uid="uid://cogcbm35u0vg6" path="res://sprites/esseaqui/Novos/cogumelo/cogumelo_idle.png" id="5_7vd65"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x4ail"]
+size = Vector2(96, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w1q6v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_difrr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_aku6x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pdarc")
+}],
+"loop": false,
+"name": &"cortada 2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_difrr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7vd65")
+}],
+"loop": true,
+"name": &"idle cc",
+"speed": 5.0
+}]
+
+[node name="erva2" type="StaticBody2D" unique_id=551852327 groups=["erva"]]
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_4wgp7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=26823321]
+position = Vector2(48, 31)
+shape = SubResource("RectangleShape2D_x4ail")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=861788882]
+position = Vector2(49, 28)
+rotation = 1.5707964
+scale = Vector2(0.40753052, 0.81367266)
+sprite_frames = SubResource("SpriteFrames_w1q6v")
+animation = &"cortada 2"
+autoplay = "idle cc"
+frame = 2
+frame_progress = 1.0

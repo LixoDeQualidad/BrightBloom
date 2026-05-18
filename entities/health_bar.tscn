@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bw706lvq06q52"]
+
+[ext_resource type="Script" uid="uid://badvh34ywq6w6" path="res://scripts/health_bar.gd" id="1_0j5km"]
+[ext_resource type="FontFile" uid="uid://c8ebu8l3paf7e" path="res://Menu/Anaktoria/Anaktoria.otf" id="2_lpjjl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lpjjl"]
+bg_color = Color(3.85046e-06, 0.7636446, 0.27397883, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_154tk"]
+bg_color = Color(0.8657571, 0.6023086, 0.71085596, 1)
+
+[node name="HealthBar" type="Control" unique_id=1246266883]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 90.0
+offset_bottom = 12.0
+script = ExtResource("1_0j5km")
+
+[node name="HealthProgressBar" type="ProgressBar" parent="." unique_id=319087289]
+layout_mode = 0
+offset_right = 79.0
+offset_bottom = 10.0
+theme_override_fonts/font = ExtResource("2_lpjjl")
+theme_override_font_sizes/font_size = 7
+theme_override_styles/background = SubResource("StyleBoxFlat_lpjjl")
+theme_override_styles/fill = SubResource("StyleBoxFlat_154tk")
+value = 100.0
+
+[node name="HealthLabel" type="Label" parent="HealthProgressBar" unique_id=1879312965]
+visible = false
+layout_mode = 0
+offset_left = 28.0
+offset_top = 11.0
+offset_right = 61.0
+offset_bottom = 25.0
+theme_override_fonts/font = ExtResource("2_lpjjl")
+theme_override_font_sizes/font_size = 10
+text = "100/100"
