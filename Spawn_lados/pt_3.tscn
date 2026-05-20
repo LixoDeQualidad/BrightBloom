@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://h7wng3jytlti"]
 
+[ext_resource type="Script" uid="uid://wjq5y50054vy" path="res://scripts/UI.gd" id="1_epcpl"]
 [ext_resource type="Script" uid="uid://d37hmhwof5bnj" path="res://scripts/portals/portal_6.gd" id="4_5fdn6"]
 [ext_resource type="Texture2D" uid="uid://pdflnpok4fdy" path="res://sprites/Sprites/platformer_metroidvania/tileset.png" id="4_ijify"]
 [ext_resource type="Script" uid="uid://dtogbajs6df30" path="res://scripts/portals/portal_5.gd" id="4_vcj5q"]
@@ -11,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://b4uyanguafauh" path="res://entities/player.tscn" id="9_y51jk"]
 [ext_resource type="PackedScene" uid="uid://c2328ye3vm8cf" path="res://entities/erva.tscn" id="10_eosq8"]
 [ext_resource type="PackedScene" uid="uid://biiopjv15qe7f" path="res://entities/ItemFaca.tscn" id="11_nl5wm"]
-[ext_resource type="FontFile" uid="uid://c8ebu8l3paf7e" path="res://Menu/Anaktoria/Anaktoria.otf" id="12_epcpl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5fdn6"]
 texture = ExtResource("4_ijify")
@@ -172,6 +172,9 @@ size = Vector2(141, 20)
 size = Vector2(62, 20)
 
 [node name="pt_3_baixo" type="Node2D" unique_id=1458071394]
+script = ExtResource("1_epcpl")
+icone_tamanho = 14
+usar_canto_esquerdo = true
 
 [node name="fundo" type="ParallaxBackground" parent="." unique_id=1050525760]
 
@@ -242,12 +245,3 @@ collision_layer = 1
 
 [node name="Tesoura" parent="." unique_id=226094837 instance=ExtResource("11_nl5wm")]
 position = Vector2(364, 97)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=238852169]
-
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=1859513281]
-offset_left = 258.0
-offset_top = 1.0
-offset_right = 298.0
-offset_bottom = 24.0
-theme_override_fonts/font = ExtResource("12_epcpl")

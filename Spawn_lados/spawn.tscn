@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://b4hwtmdqp1rdk" path="res://entities/boss.tscn" id="6_fwtj3"]
 [ext_resource type="PackedScene" uid="uid://bw706lvq06q52" path="res://entities/health_bar.tscn" id="7_fwtj3"]
 [ext_resource type="PackedScene" uid="uid://bxeslj2krlpjp" path="res://entities/boss_health_bar.tscn" id="8_qqd0w"]
-[ext_resource type="FontFile" uid="uid://c8ebu8l3paf7e" path="res://Menu/Anaktoria/Anaktoria.otf" id="9_mv5nd"]
 [ext_resource type="PackedScene" uid="uid://c2328ye3vm8cf" path="res://entities/erva.tscn" id="9_po5bn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fwtj3"]
@@ -49,12 +48,6 @@ position = Vector2(758, 158)
 offset_right = 155.0
 
 [node name="BossHealthBar" parent="CanvasLayer" unique_id=53857941 instance=ExtResource("8_qqd0w")]
-
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=1437503530]
-offset_left = 259.0
-offset_right = 299.0
-offset_bottom = 23.0
-theme_override_fonts/font = ExtResource("9_mv5nd")
 
 [node name="Erva" parent="." unique_id=1256044 instance=ExtResource("9_po5bn")]
 position = Vector2(993, 113)

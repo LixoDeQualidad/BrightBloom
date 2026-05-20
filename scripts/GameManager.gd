@@ -53,6 +53,21 @@ signal faca_estado_atualizado(tem_faca: bool)
 signal faca_usada(posicao: Vector2, alcance: float, direcao: Vector2)  # Sinal quando a faca é usada
 signal erva_cortada(posicao: Vector2)  # Sinal quando uma erva é cortada
 
+# Adicione estas funções ao seu GameManager.gd se ainda não tem
+var ultima_mensagem: String = ""
+var historico_mensagens: Array = []
+
+func guardar_mensagem_ui(mensagem: String):
+	ultima_mensagem = mensagem
+	historico_mensagens.append(mensagem)
+	if historico_mensagens.size() > 20:
+		historico_mensagens.pop_front()
+
+func get_ultima_mensagem() -> String:
+	if ultima_mensagem == "":
+		return "🎮 Jogo iniciado! Pressione Q para atacar!"
+	return ultima_mensagem
+
 func _process(delta):
 	# Atualiza cooldown da faca
 	if faca_cooldown > 0:

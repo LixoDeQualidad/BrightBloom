@@ -86,11 +86,10 @@ script = ExtResource("7_cpter")
 position = Vector2(-8, 32)
 shape = SubResource("RectangleShape2D_cjv0q")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2007556661]
-
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=636680103]
-offset_left = 261.0
-offset_top = 1.0
-offset_right = 301.0
-offset_bottom = 24.0
+[node name="StatusLabel" type="Label" parent="." unique_id=252419379]
+offset_left = 188.0
+offset_right = 273.0
+offset_bottom = 111.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("10_cjv0q")
+theme_override_font_sizes/font_size = 8

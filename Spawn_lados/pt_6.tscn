@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://dckaogivtaxax" path="res://sprites/esseaqui/Fantasy Swamp Forest/Free/BG_2/BG_2.png" id="8_2q2wg"]
 [ext_resource type="Texture2D" uid="uid://b771fb0smoad2" path="res://sprites/esseaqui/Fantasy Swamp Forest/Free/BG_1/BG_1.png" id="9_br50s"]
 [ext_resource type="PackedScene" uid="uid://biiopjv15qe7f" path="res://entities/ItemFaca.tscn" id="10_2q2wg"]
-[ext_resource type="FontFile" uid="uid://c8ebu8l3paf7e" path="res://Menu/Anaktoria/Anaktoria.otf" id="11_br50s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s30rx"]
 size = Vector2(131, 20)
@@ -80,12 +79,3 @@ shape = SubResource("RectangleShape2D_2q2wg")
 
 [node name="Tesoura" parent="." unique_id=195661834 instance=ExtResource("10_2q2wg")]
 position = Vector2(326, 70)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1063760151]
-
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=2124018197]
-offset_left = 259.0
-offset_top = 1.0
-offset_right = 299.0
-offset_bottom = 24.0
-theme_override_fonts/font = ExtResource("11_br50s")

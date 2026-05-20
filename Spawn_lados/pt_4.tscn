@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://dckaogivtaxax" path="res://sprites/esseaqui/Fantasy Swamp Forest/Free/BG_2/BG_2.png" id="8_kjbw3"]
 [ext_resource type="Texture2D" uid="uid://b771fb0smoad2" path="res://sprites/esseaqui/Fantasy Swamp Forest/Free/BG_1/BG_1.png" id="9_4ckgr"]
 [ext_resource type="PackedScene" uid="uid://8ydxkgbp4omi" path="res://entities/item_brilho.tscn" id="10_kjbw3"]
-[ext_resource type="FontFile" uid="uid://c8ebu8l3paf7e" path="res://Menu/Anaktoria/Anaktoria.otf" id="11_4ckgr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cs7rk"]
 size = Vector2(26.5, 68)
@@ -80,11 +79,3 @@ shape = SubResource("RectangleShape2D_prn18")
 
 [node name="Item_brilho" parent="." unique_id=123923408 instance=ExtResource("10_kjbw3")]
 position = Vector2(760, 159)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1769012220]
-
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=1965424925]
-offset_left = 253.0
-offset_right = 293.0
-offset_bottom = 23.0
-theme_override_fonts/font = ExtResource("11_4ckgr")

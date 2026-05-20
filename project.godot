@@ -21,6 +21,7 @@ config/features=PackedStringArray("4.6", "Mobile")
 [autoload]
 
 GameManager="*uid://17qs5nluyvct"
+Ui="*uid://wjq5y50054vy"
 
 [display]
 

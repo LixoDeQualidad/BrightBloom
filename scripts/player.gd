@@ -92,6 +92,12 @@ func ativar_luz():
 	ray_cast.target_position = Vector2(50, 0)
 	ray_cast.collision_mask = 2
 
+func coletar_luz():
+	var game_manager = get_node("/root/GameManager")
+	if game_manager:
+		game_manager.coletar_luz()
+		print("✨ Luz coletada e registrada no GameManager!")
+
 func _process(_delta):
 	if luz_fundo:
 		luz_fundo.global_position = global_position
@@ -424,7 +430,7 @@ func take_damage(amount: int):
 func die():
 	print("Player morreu!")
 	status = PlayerState.hurt
-	anim.play("hurt")
+	anim.play("die")
 	# Desativa colisões
 	collision_shape.disabled = true
 	hitbox_collision_shape.disabled = true
@@ -539,11 +545,17 @@ func collect_double_jump_item():
 	print("Pulo duplo adquirido!")
 
 # Mantido para compatibilidade com seu sistema de faca
+# SUBSTITUA a função coletar_faca() existente por esta:
 func coletar_faca():
 	tem_faca = true
-	print("Faca adquirida! (O ataque já está disponível desde o início)")
-	GameManager.tem_faca = true
-
+	
+	# REGISTRA a faca no GameManager (isso vai emitir o sinal!)
+	var game_manager = get_node("/root/GameManager")
+	if game_manager:
+		game_manager.coletar_faca()  # Isso vai chamar o sistema correto
+		print("🗡️ Faca coletada e registrada no GameManager!")
+	else:
+		print("❌ GameManager não encontrado!")
 func _on_game_manager_respawned():
 	# Reseta posição
 	global_position = GameManager.current_checkpoint
