@@ -20,6 +20,7 @@ size = Vector2(20, 78)
 [node name="pt_7_esquerda" type="Node2D" unique_id=1594452758]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=969283661]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="fundo" type="ParallaxBackground" parent="." unique_id=1162943237]
@@ -52,6 +53,7 @@ scale = Vector2(0.5298082, 0.59250003)
 texture = ExtResource("9_x2dty")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="fundo" unique_id=539232685]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="TileMaps" type="Node" parent="." unique_id=1810591031]
