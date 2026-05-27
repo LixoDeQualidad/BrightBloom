@@ -8,8 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://0a0few32iqq1" path="res://sprites/esseaqui/Novos/Mariposa/hurt_mariposa.png" id="6_6nm46"]
 [ext_resource type="Texture2D" uid="uid://c0axfupimsdlf" path="res://sprites/esseaqui/Novos/Mariposa/walk_mariposa.png" id="6_tjdhl"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b0kkn"]
-size = Vector2(22, 31)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6nm46"]
+radius = 6.0
+height = 26.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rw12f"]
 atlas = ExtResource("5_qsoyl")
@@ -439,13 +440,13 @@ script = ExtResource("1_merdl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=404515596]
 z_index = 2
-position = Vector2(2, 10.5)
-shape = SubResource("RectangleShape2D_b0kkn")
+position = Vector2(2, 13)
+shape = SubResource("CapsuleShape2D_6nm46")
 debug_color = Color(0.8306015, 0.36392036, 0.40290782, 0.41960785)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1847556625]
 z_index = 1
-position = Vector2(2.0000005, 11.000003)
+position = Vector2(1, 11)
 scale = Vector2(0.09375, 0.08796297)
 sprite_frames = SubResource("SpriteFrames_i623q")
 animation = &"hurt"
@@ -474,7 +475,7 @@ z_index = 10
 target_position = Vector2(7, 0)
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1661368152]
-position = Vector2(35.17074, -21.527168)
+position = Vector2(36, -22)
 rotation = 2.115339
 scale = Vector2(0.882237, 0.93237156)
 skew = -0.80808747
@@ -505,7 +506,7 @@ target_position = Vector2(23, 0)
 [node name="FacaArea" type="Area2D" parent="." unique_id=1241516500]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FacaArea" unique_id=1629041123]
-position = Vector2(18.5, 13)
+position = Vector2(19, 14)
 shape = SubResource("RectangleShape2D_qsoyl")
 debug_color = Color(0.7537428, 0.31588832, 0.8314991, 0.41960785)
 

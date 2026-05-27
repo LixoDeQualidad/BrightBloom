@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bev65wfw28s23"]
+
+[ext_resource type="Script" uid="uid://bm6un1mm7be1h" path="res://scripts/plataforma.gd" id="1_h6wf5"]
+[ext_resource type="Texture2D" uid="uid://pdflnpok4fdy" path="res://sprites/Sprites/platformer_metroidvania/tileset.png" id="2_q7nxc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vxn3c"]
+size = Vector2(32, 4)
+
+[node name="Plataforma" type="CharacterBody2D" unique_id=98331137]
+script = ExtResource("1_h6wf5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=19983595]
+position = Vector2(3, -6)
+shape = SubResource("RectangleShape2D_vxn3c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1093281352]
+position = Vector2(2.999999, -2)
+scale = Vector2(1, 0.75)
+texture = ExtResource("2_q7nxc")
+region_enabled = true
+region_rect = Rect2(96, 64, 32, 16)
