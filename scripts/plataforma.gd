@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed: float = 15.0        # velocidade de movimento
+@export var speed: float = 20.0        # velocidade de movimento
 @export var distance: float = 100.0     # distância total do movimento
 
 var start_pos: Vector2
