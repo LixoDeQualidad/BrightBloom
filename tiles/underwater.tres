@@ -1,5 +1,17 @@
 [gd_resource type="TileSet" format=3 uid="uid://evyc8spfes4j"]
 
+[ext_resource type="Texture2D" uid="uid://c0il1onr1r03t" path="res://sprites/esseaqui/Fantasy Swamp Forest/Free/agua.png" id="1_5y656"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5y656"]
+texture = ExtResource("1_5y656")
+0:0/animation_separation = Vector2i(1, 0)
+0:0/animation_frame_0/duration = 1.0
+0:0/animation_frame_1/duration = 1.0
+0:0/0 = 0
+0:1/0 = 0
+2:1/0 = 0
+
 [resource]
 physics_layer_0/collision_layer = 32
 physics_layer_0/collision_mask = 2
+sources/1 = SubResource("TileSetAtlasSource_5y656")
