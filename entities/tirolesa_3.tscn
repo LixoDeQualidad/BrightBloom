@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://drqmkt5a067xe"]
+
+[ext_resource type="AudioStream" uid="uid://b5o2m3fw81dn3" path="res://audio/Deslize.mp3" id="1_hjx7t"]
+[ext_resource type="Texture2D" uid="uid://2sfc6dmii6ua" path="res://sprites/Sprites/ItensBG/CORDA 2.png" id="2_qgcnn"]
+[ext_resource type="Texture2D" uid="uid://d2fr5hjwd4u3d" path="res://sprites/Sprites/ItensBG/Tronco grande.png" id="3_hqoso"]
+[ext_resource type="Texture2D" uid="uid://bhtad0adkkvm5" path="res://sprites/Sprites/ItensBG/Tronco pequeno.png" id="4_l6nd5"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_gbglr"]
+custom_solver_bias = 0.291
+a = Vector2(-376, -7)
+b = Vector2(-594, 173)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_du8fi"]
+a = Vector2(-598, 331)
+b = Vector2(-369, 217)
+
+[node name="tirolesa3" type="Node2D" unique_id=599305646]
+
+[node name="PontoInicio" type="Marker2D" parent="." unique_id=1066840227]
+position = Vector2(-14, 22)
+
+[node name="PontoFim" type="Marker2D" parent="." unique_id=225836775]
+position = Vector2(-442, 303)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2059784668]
+position = Vector2(178, -6)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=785224940]
+position = Vector2(198, 25)
+shape = SubResource("SegmentShape2D_gbglr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" unique_id=343211435]
+position = Vector2(-25, -21)
+shape = SubResource("SegmentShape2D_du8fi")
+
+[node name="SomTirolesa" type="AudioStreamPlayer2D" parent="." unique_id=1366520920]
+position = Vector2(17, -3)
+stream = ExtResource("1_hjx7t")
+volume_db = -23.327
+bus = &"SFX"
+
+[node name="Corda2" type="Sprite2D" parent="." unique_id=1672981804]
+position = Vector2(-219.01694, 155.81111)
+rotation = -0.6736971
+scale = Vector2(4.531306, 0.988166)
+texture = ExtResource("2_qgcnn")
+
+[node name="TroncoGrande" type="Sprite2D" parent="." unique_id=911402384]
+position = Vector2(4, 46.000004)
+scale = Vector2(1.1833332, 1.5583334)
+texture = ExtResource("3_hqoso")
+
+[node name="TroncoPequeno" type="Sprite2D" parent="." unique_id=2086794723]
+position = Vector2(-447.09375, 323.5)
+scale = Vector2(1.5875026, 2.083333)
+texture = ExtResource("4_l6nd5")

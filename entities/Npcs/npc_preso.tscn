@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://mnvbh4fv01xn"]
+
+[ext_resource type="Script" uid="uid://bwqoctrc0ok7d" path="res://scripts/Npcs/npc_preso.gd" id="1_8e1ju"]
+[ext_resource type="Texture2D" uid="uid://d3p7ovmasrt2w" path="res://sprites/Sprites/Npcs/cueio/BunnyIdle-Sheet.png" id="1_ijq2p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebum8"]
+size = Vector2(12, 13)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xvf33"]
+radius = 23.769728
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8e1ju"]
+atlas = ExtResource("1_ijq2p")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6qgk"]
+atlas = ExtResource("1_ijq2p")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1oy31"]
+atlas = ExtResource("1_ijq2p")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulsvc"]
+atlas = ExtResource("1_ijq2p")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_viod0"]
+atlas = ExtResource("1_ijq2p")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0c5w"]
+atlas = ExtResource("1_ijq2p")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vqgm"]
+atlas = ExtResource("1_ijq2p")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5s10"]
+atlas = ExtResource("1_ijq2p")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ebum8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8e1ju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6qgk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1oy31")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ulsvc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_viod0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0c5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vqgm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i5s10")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 7.0
+}]
+
+[node name="NpcPreso" type="CharacterBody2D" unique_id=851784435]
+collision_layer = 32
+collision_mask = 15
+script = ExtResource("1_8e1ju")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=11914861]
+position = Vector2(-1, 4.5)
+shape = SubResource("RectangleShape2D_ebum8")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=953443655]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1119054058]
+shape = SubResource("CircleShape2D_xvf33")
+debug_color = Color(1, 1, 1, 0.41960785)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=761448299]
+position = Vector2(2, 3)
+scale = Vector2(0.75, 0.71875)
+sprite_frames = SubResource("SpriteFrames_ebum8")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.0344304

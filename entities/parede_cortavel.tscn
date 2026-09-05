@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://c37e53beu2vyh"]
+
+[ext_resource type="Script" uid="uid://c00m6ab43ij1e" path="res://scripts/Itens/parede_cortavel.gd" id="1_h4qdw"]
+[ext_resource type="Texture2D" uid="uid://cogcbm35u0vg6" path="res://sprites/Sprites/ItensBG/cogumeloParede/cogumelo_idle.png" id="2_snab4"]
+[ext_resource type="Texture2D" uid="uid://dt65n63u13dpq" path="res://sprites/Sprites/ItensBG/cogumeloParede/cogumelo_cura.png" id="3_gqyc6"]
+[ext_resource type="Texture2D" uid="uid://c7j6u7rhiuq6j" path="res://sprites/Sprites/ItensBG/cogumeloParede/cogumelo_cortado_1.png" id="4_suqc7"]
+[ext_resource type="Texture2D" uid="uid://bcnkp6rnou5oc" path="res://sprites/Sprites/ItensBG/cogumeloParede/cogumelo_cortado_2.png" id="5_wwydy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufghq"]
+atlas = ExtResource("2_snab4")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhsj7"]
+atlas = ExtResource("3_gqyc6")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_goagg"]
+atlas = ExtResource("3_gqyc6")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0eis"]
+atlas = ExtResource("4_suqc7")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7d1xg"]
+atlas = ExtResource("5_wwydy")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ebum8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufghq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhsj7")
+}],
+"loop": 1,
+"name": &"Ilde",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_goagg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0eis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7d1xg")
+}],
+"loop": 0,
+"name": &"cortada",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebum8"]
+size = Vector2(159, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ebum8"]
+radius = 101.24229
+
+[node name="ParedeCortavel" type="Node2D" unique_id=466773529]
+script = ExtResource("1_h4qdw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=697268996]
+position = Vector2(19.472792, 1.1227946)
+rotation = 1.6283922
+scale = Vector2(1, 1.3047676)
+sprite_frames = SubResource("SpriteFrames_ebum8")
+animation = &"Ilde"
+autoplay = "Ilde"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1784392076]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2118655032]
+position = Vector2(9.5, 0)
+shape = SubResource("RectangleShape2D_ebum8")
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=929604204]
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=1755160346]
+shape = SubResource("CircleShape2D_ebum8")
+debug_color = Color(0.7372549, 0.94509804, 1, 0.20784314)
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_jogador_entrou"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_jogador_saiu"]

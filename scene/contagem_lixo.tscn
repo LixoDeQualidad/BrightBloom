@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cy4kscmpohjd1"]
+
+[ext_resource type="Script" uid="uid://86idg4u26llb" path="res://scripts/contagem_lixo.gd" id="1_jt5st"]
+[ext_resource type="FontFile" uid="uid://c8ebu8l3paf7e" path="res://Menu/Anaktoria/Anaktoria.otf" id="1_pxl3a"]
+
+[node name="ContagemLixo" type="CanvasLayer" unique_id=1587873765]
+
+[node name="Label" type="Label" parent="." unique_id=1311389717]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.7464556, 0.8354285, 0.6901722, 1)
+theme_override_fonts/font = ExtResource("1_pxl3a")
+theme_override_font_sizes/font_size = 12
+text = "lixos"
+script = ExtResource("1_jt5st")

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://djn562jxwn1xw"]
+
+[ext_resource type="Script" uid="uid://bhm4kais5yimm" path="res://scripts/Itens/lixo.gd" id="1_etav3"]
+[ext_resource type="Texture2D" uid="uid://bf8h6cwrprmsx" path="res://sprites/Sprites/ItensBG/Lixo_2.png" id="2_etav3"]
+[ext_resource type="AudioStream" uid="uid://cyd764hh8o1or" path="res://audio/efeito_5.mp3" id="3_0flyx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pfyk3"]
+size = Vector2(13, 9.5)
+
+[node name="Lixo" type="Area2D" unique_id=1064141708]
+collision_mask = 3
+script = ExtResource("1_etav3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1060500728]
+position = Vector2(4.5, -2.25)
+shape = SubResource("RectangleShape2D_pfyk3")
+debug_color = Color(0.31003103, 0.61160266, 0.4002899, 0.41960785)
+
+[node name="Lixo2" type="Sprite2D" parent="." unique_id=329763844]
+position = Vector2(2.7499998, -5.249999)
+scale = Vector2(0.45312497, 0.484375)
+texture = ExtResource("2_etav3")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1841225248]
+stream = ExtResource("3_0flyx")
+bus = &"SFX"

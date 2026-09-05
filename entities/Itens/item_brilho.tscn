@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://8ydxkgbp4omi"]
+
+[ext_resource type="Script" uid="uid://dbdhhcl1cbdi0" path="res://scripts/Itens/item_brilho.gd" id="1_11x66"]
+[ext_resource type="Texture2D" uid="uid://deipxscmoxkwx" path="res://sprites/Sprites/Itens/lapiao.png" id="2_6udqa"]
+[ext_resource type="AudioStream" uid="uid://cx7fmdeef68s0" path="res://audio/Upgrade.mp3" id="3_6udqa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4typu"]
+radius = 7.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5dvri"]
+atlas = ExtResource("2_6udqa")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_c1io0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5dvri")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Item_brilho" type="Area2D" unique_id=771628638]
+collision_layer = 8
+collision_mask = 15
+script = ExtResource("1_11x66")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=245735478]
+shape = SubResource("CircleShape2D_4typu")
+debug_color = Color(4.042983e-06, 0.5881858, 0.68830764, 0.41960785)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=733259439]
+position = Vector2(0, -1)
+scale = Vector2(0.50781256, 0.53125)
+sprite_frames = SubResource("SpriteFrames_c1io0")
+autoplay = "default"
+frame_progress = 0.54628915
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1353604713]
+stream = ExtResource("3_6udqa")
+volume_db = -17.495
+bus = &"SFX"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://ciojbbr0cvp8i"]
+
+[ext_resource type="Script" uid="uid://1usmtu2ypirq" path="res://scripts/UI.gd" id="1_onfsl"]
+[ext_resource type="FontFile" uid="uid://c8ebu8l3paf7e" path="res://Menu/Anaktoria/Anaktoria.otf" id="2_s2f8l"]
+[ext_resource type="Script" uid="uid://c6b12nxpla08b" path="res://scripts/inventory_ui.gd" id="3_kee8w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gbtmb"]
+bg_color = Color(0.7820216, 0.50927997, 0.5653627, 0.5019608)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.76746285, 0.8213536, 0.73085594, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 1
+
+[node name="UI" type="CanvasLayer" unique_id=1033567640]
+script = ExtResource("1_onfsl")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=719532655]
+offset_left = 184.0
+offset_right = 300.0
+offset_bottom = 18.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_s2f8l")
+theme_override_font_sizes/font_size = 10
+theme_override_styles/background = SubResource("StyleBoxFlat_gbtmb")
+
+[node name="Label" type="Label" parent="ProgressBar" unique_id=1708676262]
+visible = false
+layout_mode = 0
+offset_left = 39.0
+offset_top = -10.0
+offset_right = 79.0
+offset_bottom = 13.0
+
+[node name="LabelNotificacao" type="Label" parent="." unique_id=340058219]
+offset_top = 28.0
+offset_right = 55.0
+offset_bottom = 51.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_s2f8l")
+theme_override_font_sizes/font_size = 11
+text = "desbloqueado"
+
+[node name="InventoryUI" type="Control" parent="." unique_id=597340883]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 189.0
+offset_top = 21.0
+offset_right = 298.0
+offset_bottom = 29.0
+script = ExtResource("3_kee8w")
+icon_size = Vector2(20, 20)
+spacing = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="InventoryUI" unique_id=2136506792]
+layout_mode = 0
+offset_left = 231.0
+offset_top = 4.0
+offset_right = 341.0
+offset_bottom = 23.0

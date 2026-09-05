@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cnhav6baixg2"]
+
+[ext_resource type="Script" uid="uid://x7tobk1xlnr4" path="res://scripts/portals/door_Locked.gd" id="1_gtka5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gtka5"]
+size = Vector2(202, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_58nyq"]
+size = Vector2(224.5, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sj5cf"]
+size = Vector2(205, 20)
+
+[node name="LookedDoor" type="Node2D" unique_id=1748137016]
+script = ExtResource("1_gtka5")
+
+[node name="DetectorBloqueio" type="Area2D" parent="." unique_id=523999042]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectorBloqueio" unique_id=696011153]
+position = Vector2(93, 18)
+shape = SubResource("RectangleShape2D_gtka5")
+debug_color = Color(1, 1, 1, 0.05490196)
+
+[node name="Barreira" type="StaticBody2D" parent="." unique_id=1781084287]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barreira" unique_id=1251023183]
+position = Vector2(80.75, 14)
+shape = SubResource("RectangleShape2D_58nyq")
+debug_color = Color(0.6981231, 0.33939323, 0.90043396, 0.41960785)
+
+[node name="passagem" type="Area2D" parent="." unique_id=1817716238]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="passagem" unique_id=675928468]
+position = Vector2(89, 40)
+shape = SubResource("RectangleShape2D_sj5cf")
+
+[connection signal="body_exited" from="DetectorBloqueio" to="." method="_on_detector_bloqueio_body_exited"]
+[connection signal="body_entered" from="passagem" to="." method="_on_passagem_body_entered"]
