@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://cctubx075scpv"]
+
+[ext_resource type="Script" uid="uid://maoi1f4relsv" path="res://scripts/Npcs/npc_0.gd" id="1_ee2mi"]
+[ext_resource type="Texture2D" uid="uid://d4kovqr0d4ih5" path="res://sprites/Sprites/Npcs/worm/Bugs.png" id="2_ygtb3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrj2m"]
+atlas = ExtResource("2_ygtb3")
+region = Rect2(96, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8b7ke"]
+atlas = ExtResource("2_ygtb3")
+region = Rect2(64, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gngpe"]
+atlas = ExtResource("2_ygtb3")
+region = Rect2(32, 288, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xghjh"]
+atlas = ExtResource("2_ygtb3")
+region = Rect2(0, 288, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hxbfi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrj2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8b7ke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gngpe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xghjh")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nqry7"]
+size = Vector2(28, 19)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m7w76"]
+radius = 55.081757
+
+[node name="Npc0" type="CharacterBody2D" unique_id=1680433251]
+script = ExtResource("1_ee2mi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1886544341]
+position = Vector2(3.5000002, -2)
+scale = Vector2(1.15625, 1.125)
+sprite_frames = SubResource("SpriteFrames_hxbfi")
+autoplay = "default"
+frame_progress = 0.47946793
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=103778575]
+position = Vector2(6, 5.5)
+shape = SubResource("RectangleShape2D_nqry7")
+debug_color = Color(0.6832961, 0.49771345, 0.19095558, 0.41960785)
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=2121029570]
+collision_mask = 3
+
+[node name="InteractionArea" type="CollisionShape2D" parent="InteractionArea" unique_id=489438445]
+position = Vector2(6, 6)
+shape = SubResource("CircleShape2D_m7w76")
+debug_color = Color(0.92156863, 0.9843137, 1, 0.1764706)
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_body_exited"]

@@ -1,0 +1,177 @@
+[gd_scene format=3 uid="uid://bpjpnoitaretg"]
+
+[ext_resource type="Script" uid="uid://d1fu48bmn22ka" path="res://scripts/opções.gd" id="1_yy4o3"]
+[ext_resource type="Texture2D" uid="uid://b1qs85uue1rv1" path="res://Menu/Menu.jpg" id="2_0y7xo"]
+[ext_resource type="Texture2D" uid="uid://b4fxyeqnqxbjh" path="res://Menu/sprites_menu/little brabuleta.png" id="3_30wof"]
+[ext_resource type="FontFile" uid="uid://c8ebu8l3paf7e" path="res://Menu/Anaktoria/Anaktoria.otf" id="3_gak34"]
+[ext_resource type="Texture2D" uid="uid://btdnhf3jyg7ab" path="res://Menu/sprites_menu/stick.png" id="5_gak34"]
+[ext_resource type="Texture2D" uid="uid://bvg0bdsf0sxja" path="res://Menu/sprites_menu/little brabuleta clara.png" id="5_svrev"]
+[ext_resource type="Texture2D" uid="uid://comn4t077xkey" path="res://Menu/sprites_menu/bolinha rosa.png" id="6_0y7xo"]
+[ext_resource type="Script" uid="uid://w7e618hy088d" path="res://scripts/botoes/remap_button.gd" id="8_0y7xo"]
+[ext_resource type="Script" uid="uid://w4dbo5lsft5h" path="res://scripts/botoes/remap_button_2.gd" id="9_lcm1s"]
+[ext_resource type="Script" uid="uid://cldpj1phu3ovg" path="res://scripts/botoes/remap_button_3.gd" id="10_ys8mg"]
+[ext_resource type="Script" uid="uid://cqaabh60ncgi6" path="res://scripts/botoes/remap_button_4.gd" id="11_b5gxm"]
+[ext_resource type="Script" uid="uid://48b11aotohij" path="res://scripts/botoes/remap_button_5.gd" id="12_o1bpq"]
+[ext_resource type="Script" uid="uid://d4ih17nemp3o7" path="res://scripts/botoes/reset_button.gd" id="13_whtl0"]
+[ext_resource type="Texture2D" uid="uid://clv6mlh8qrjfp" path="res://Menu/sprites_menu/seta rosa.png" id="14_5hfjt"]
+
+[node name="Opções" type="Control" unique_id=806546256]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = -1.0
+offset_right = 13.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yy4o3")
+
+[node name="Menu" type="Sprite2D" parent="." unique_id=767433294]
+position = Vector2(137.5, 100.500015)
+scale = Vector2(0.15677083, 0.18611108)
+texture = ExtResource("2_0y7xo")
+
+[node name="VBoxContainer" type="HBoxContainer" parent="." unique_id=1949434182]
+custom_minimum_size = Vector2(1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.089
+anchor_right = 1.0
+anchor_bottom = 0.67700005
+offset_left = -7.0
+offset_top = -67.8
+offset_right = 297.2
+offset_bottom = 63.59999
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=1034142524]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2" unique_id=1668415892]
+layout_mode = 2
+layout_direction = 4
+theme_override_fonts/font = ExtResource("3_gak34")
+theme_override_font_sizes/font_size = 12
+text = "Volume efeitos"
+autowrap_trim_flags = 0
+justification_flags = 0
+
+[node name="SFXSlider" type="HSlider" parent="VBoxContainer/HBoxContainer2" unique_id=1429660269]
+custom_minimum_size = Vector2(200, 20)
+custom_maximum_size = Vector2(2000, 2000)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_icons/grabber = ExtResource("3_30wof")
+theme_override_icons/grabber_highlight = ExtResource("5_svrev")
+theme_override_icons/grabber_disabled = ExtResource("6_0y7xo")
+theme_override_icons/tick = ExtResource("5_gak34")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=318301652]
+layout_mode = 0
+offset_left = -7.0
+offset_top = 38.0
+offset_right = 283.0
+offset_bottom = 55.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2" unique_id=1853461346]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="VBoxContainer2/HBoxContainer" unique_id=1558796210]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_gak34")
+theme_override_font_sizes/font_size = 12
+text = "Volume musica"
+horizontal_alignment = 3
+
+[node name="MusicSlider" type="HSlider" parent="VBoxContainer2/HBoxContainer" unique_id=1585874033]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_constants/center_grabber = 0
+theme_override_constants/grabber_offset = 0
+theme_override_constants/tick_offset = 0
+theme_override_icons/grabber = ExtResource("3_30wof")
+theme_override_icons/grabber_highlight = ExtResource("5_svrev")
+theme_override_icons/grabber_disabled = ExtResource("6_0y7xo")
+theme_override_icons/tick = ExtResource("5_gak34")
+ticks_position = 3
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="." unique_id=142335516]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 84.0
+offset_right = 472.66666
+offset_bottom = 169.0
+scale = Vector2(0.6, 0.6)
+
+[node name="RemapButton" type="Button" parent="VBoxContainer3" unique_id=791236755]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_gak34")
+theme_override_font_sizes/font_size = 12
+text = "esquerda"
+icon = ExtResource("3_30wof")
+script = ExtResource("8_0y7xo")
+
+[node name="RemapButton2" type="Button" parent="VBoxContainer3" unique_id=695609381]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_gak34")
+theme_override_font_sizes/font_size = 12
+icon = ExtResource("3_30wof")
+expand_icon = true
+script = ExtResource("9_lcm1s")
+
+[node name="RemapButton3" type="Button" parent="VBoxContainer3" unique_id=952783921]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_gak34")
+theme_override_font_sizes/font_size = 12
+theme_override_icons/icon = ExtResource("3_30wof")
+icon = ExtResource("3_30wof")
+expand_icon = true
+script = ExtResource("10_ys8mg")
+
+[node name="RemapButton4" type="Button" parent="VBoxContainer3" unique_id=1773053553]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_gak34")
+theme_override_font_sizes/font_size = 12
+icon = ExtResource("3_30wof")
+expand_icon = true
+script = ExtResource("11_b5gxm")
+
+[node name="RemapButton5" type="Button" parent="VBoxContainer3" unique_id=1364831126]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_gak34")
+theme_override_font_sizes/font_size = 12
+icon = ExtResource("3_30wof")
+expand_icon = true
+script = ExtResource("12_o1bpq")
+
+[node name="ResetButton" type="Button" parent="VBoxContainer3" unique_id=1406682588]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_gak34")
+theme_override_font_sizes/font_size = 12
+text = "Resetar Controles"
+icon = ExtResource("5_svrev")
+expand_icon = true
+script = ExtResource("13_whtl0")
+
+[node name="Label" type="Label" parent="." unique_id=2058714348]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 2.0
+offset_right = 37.0
+offset_bottom = 25.0
+
+[node name="BtnBack" type="Button" parent="Label" unique_id=1262222392]
+layout_mode = 0
+offset_right = 35.0
+offset_bottom = 33.0
+icon = ExtResource("14_5hfjt")
+flat = true
+expand_icon = true
+
+[connection signal="pressed" from="Label/BtnBack" to="." method="_on_btn_back_pressed"]

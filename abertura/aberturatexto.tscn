@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://dmn3f1su248ot"]
+
+[ext_resource type="Script" uid="uid://ca072e5ckbnqo" path="res://abertura/aberturatexto.gd" id="1_lg4nx"]
+[ext_resource type="Texture2D" uid="uid://dt5kh4g5tu7vi" path="res://abertura/1.png" id="3_bg"]
+[ext_resource type="PackedScene" uid="uid://dmocfniwpo3c3" path="res://MapaCenas/Tutorial.tscn" id="3_eqlij"]
+[ext_resource type="FontFile" uid="uid://c8ebu8l3paf7e" path="res://Menu/Anaktoria/Anaktoria.otf" id="4_font"]
+[ext_resource type="Texture2D" uid="uid://cx23c3k5hf2a" path="res://abertura/AberturaFundo.jpg" id="5_eqlij"]
+[ext_resource type="AudioStream" uid="uid://btoanr7dg44qx" path="res://audio/fala_2.wav" id="5_voice"]
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1837515863]
+process_mode = 3
+script = ExtResource("1_lg4nx")
+background = ExtResource("3_bg")
+target_scene = ExtResource("3_eqlij")
+voice_sound = ExtResource("5_voice")
+
+[node name="AberturaFundo" type="Sprite2D" parent="." unique_id=1266247328]
+visible = false
+position = Vector2(152, 81)
+texture = ExtResource("5_eqlij")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1381262064]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_eqlij")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Overlay" type="ColorRect" parent="." unique_id=211935910]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.35)
+
+[node name="Label" type="Label" parent="." unique_id=1526625704]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -149.0
+offset_top = -47.0
+offset_right = 146.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("4_font")
+theme_override_font_sizes/font_size = 20
+text = "o"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="SoundPlayer" type="AudioStreamPlayer" parent="." unique_id=1381262065]
+bus = &"SFX"
