@@ -74,18 +74,31 @@ func _unhandled_input(event: InputEvent) -> void:
  
  
 func attack() -> void:
+	if status == PlayerState.attack:
+		return  # evita reentrância caso chame de novo por engano
+
 	can_act = false
+	status = PlayerState.attack
+	velocity.x = 0
 	sprite.play("attack")
 	som_ataque.play()
- 
-	await get_tree().create_timer(0.1).timeout  # tempo até o golpe "sair"
+
+	await get_tree().create_timer(0.1).timeout
 	attack_area.monitoring = true
-	await get_tree().create_timer(0.15).timeout  # duração da hitbox ativa
+	await get_tree().create_timer(0.15).timeout
 	attack_area.monitoring = false
- 
+
 	await sprite.animation_finished
 	can_act = true
- 
+
+	# volta pro estado certo depois do golpe
+	if is_on_floor():
+		if Input.get_axis("left", "right") != 0:
+			go_to_walk_state()
+		else:
+			go_to_idle_state()
+	else:
+		go_to_fall_state()
  
 func _on_attack_area_body_entered(body: Node) -> void:
 	# Qualquer objeto destrutível deve estar no grupo "destructible"

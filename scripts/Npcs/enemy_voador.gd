@@ -10,6 +10,7 @@ enum State { IDLE, CHASE, DASH, RECOVER }
 @export var attack_damage: int = 15
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var som_morrer: AudioStreamPlayer2D = $somDie
+var is_hurt: bool = false
 
 @export var max_health: int = 10
 var current_health: int = max_health
@@ -63,7 +64,9 @@ func _chase(_delta: float) -> void:
 	else:
 		var direction := (player.global_position - global_position).normalized()
 		velocity = direction * speed
-	sprite.play("idle")
+
+	if not is_hurt:
+		sprite.play("idle")
 
 
 func _start_dash() -> void:
@@ -114,22 +117,33 @@ func _on_hit_area_body_entered(body: Node) -> void:
 
 # Chamado pela AttackArea do player: body.take_damage(attack_damage)
 func take_damage(amount: int = 10) -> void:
-	sprite.play("hurt")
 	if is_dead:
 		return
+
 	current_health = max(current_health - amount, 0)
-	# opcional: flash de dano, som, etc.
+
 	if current_health <= 0:
 		die()
+		return
+
+	is_hurt = true
+	sprite.play("hurt")
+	await sprite.animation_finished
+	is_hurt = false
 
 
 func die() -> void:
+	if is_dead:
+		return
+
 	is_dead = true
 	velocity = Vector2.ZERO
 	set_physics_process(false)
-	hit_area.monitoring = false
-	detection_area.monitoring = false
-	# toque animação de morte / som / drop de item aqui, depois:
-	queue_free()
+	hit_area.set_deferred("monitoring", false)
+	detection_area.set_deferred("monitoring", false)
+
 	sprite.play("die")
 	som_morrer.play()
+
+	await sprite.animation_finished
+	queue_free()

@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://pxtrlxcuynvs"]
 
 [ext_resource type="Texture2D" uid="uid://f1r0oduu2axu" path="res://sprites/Sprites/FlorestaMagica/Free/Terrain_and_Props.png" id="1_npo5h"]
-[ext_resource type="Script" uid="uid://c82q6lrufyv5n" path="res://scripts/plataforma_3.gd" id="1_pa5he"]
+[ext_resource type="Script" uid="uid://c82q6lrufyv5n" path="res://scripts/plataformas/plataforma_3.gd" id="1_pa5he"]
 [ext_resource type="Texture2D" uid="uid://pdflnpok4fdy" path="res://sprites/Sprites/tiles and background/tileset2.png" id="2_pa5he"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pfyk3"]
