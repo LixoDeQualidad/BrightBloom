@@ -3178,7 +3178,7 @@ debug_color = Color(0, 0.6, 0.69803923, 0.047058824)
 position = Vector2(641, 129)
 
 [node name="SpawnPoint_FromRoom05" type="Marker2D" parent="." unique_id=506475777]
-position = Vector2(383, 837)
+position = Vector2(383, 825)
 
 [node name="Npc3" parent="." unique_id=1028898540 instance=ExtResource("22_a7x1i")]
 position = Vector2(676, 785)
