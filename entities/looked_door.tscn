@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://x7tobk1xlnr4" path="res://scripts/portals/door_Locked.gd" id="1_gtka5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gtka5"]
-size = Vector2(202, 32)
+size = Vector2(228, 39)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_58nyq"]
 size = Vector2(224.5, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sj5cf"]
-size = Vector2(205, 20)
+size = Vector2(228, 20)
 
 [node name="LookedDoor" type="Node2D" unique_id=1748137016]
 script = ExtResource("1_gtka5")
@@ -17,7 +17,7 @@ script = ExtResource("1_gtka5")
 [node name="DetectorBloqueio" type="Area2D" parent="." unique_id=523999042]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectorBloqueio" unique_id=696011153]
-position = Vector2(91, 29)
+position = Vector2(83, 25.5)
 shape = SubResource("RectangleShape2D_gtka5")
 debug_color = Color(1, 1, 1, 0.05490196)
 
@@ -33,7 +33,7 @@ collision_layer = 3
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="passagem" unique_id=675928468]
-position = Vector2(89, 40)
+position = Vector2(84, 40)
 shape = SubResource("RectangleShape2D_sj5cf")
 
 [connection signal="body_exited" from="DetectorBloqueio" to="." method="_on_detector_bloqueio_body_exited"]

@@ -13,10 +13,13 @@ func _ready() -> void:
 	var transition_scene = preload("res://scene/transition.tscn")
 	transition_layer = transition_scene.instantiate()
 	add_child(transition_layer)  
+	var minimap_scene = preload("res://scene/minimap.tscn")
+	var minimap = minimap_scene.instantiate()
+	var canvas = CanvasLayer.new()
+	canvas.layer = 50
+	canvas.add_child(minimap)
+	add_child(canvas)
 
-func change_room(scene_path: String, spawn_point_name: String) -> void:
-	current_spawn_point = spawn_point_name
-	call_deferred("_do_change_room", scene_path)
 
 func _do_change_room(scene_path: String) -> void:
 	await transition_layer.fade_out(0.2)
@@ -60,3 +63,12 @@ func collect_item(item_id: String) -> void:
 
 func has_item(item_id: String) -> bool:
 	return collected_items.has(item_id)
+
+var current_room_name: String = ""
+
+# e atualize dentro de change_room()
+func change_room(scene_path: String, spawn_point_name: String) -> void:
+	current_spawn_point = spawn_point_name
+	current_room_name = scene_path.get_file().get_basename()  # extrai "Room_02" de "res://rooms/Room_02.tscn"
+	MapData.mark_visited(current_room_name)
+	call_deferred("_do_change_room", scene_path)
