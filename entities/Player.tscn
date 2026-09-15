@@ -639,9 +639,9 @@ height = 105.0
 
 [node name="PointLightFundo" type="PointLight2D" parent="." unique_id=1639947078]
 visible = false
-position = Vector2(4.7683716e-07, 3.000001)
+position = Vector2(0.38555145, 14.180763)
 rotation = 2.115339
-scale = Vector2(0.041546635, 17.17454)
+scale = Vector2(0.036529087, 11.175602)
 skew = -0.80808747
 energy = 2.5
 blend_mode = 2

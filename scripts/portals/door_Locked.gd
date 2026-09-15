@@ -17,7 +17,6 @@ var is_talking := false
 @onready var dialogue_box = get_node("/root/Sala2/LookedDoor/DialogueBox")# ajuste o caminho
 
 func _ready() -> void:
-	detector.body_entered.connect(_on_detector_body_entered)
 	GameManager.item_adicionado.connect(_on_item_adicionado)
 	atualizar_barreira()
 
@@ -33,12 +32,7 @@ func _on_item_adicionado(nome_item: String) -> void:
 
 func _on_detector_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player") and not GameManager.tem_item(item_necessario):
-		body.pode_mover = false
-		body.velocity.x = 0
-		body.sprite.play("no")
 		player_in_range = true
-		await body.sprite.animation_finished
-		body.pode_mover = true
 
 func _on_detector_bloqueio_body_exited(body):
 	if body.is_in_group("Player"):
@@ -46,10 +40,10 @@ func _on_detector_bloqueio_body_exited(body):
 		_end_dialogue()
 
 func _process(_delta):
-	if player_in_range:
-		if not is_talking:
-			_start_dialogue()
-		elif dialogue_box.is_typing:
+	if player_in_range and not is_talking:
+		_start_dialogue()
+	elif player_in_range and Input.is_action_just_pressed("interact"):
+		if dialogue_box.is_typing:
 			dialogue_box.skip_typing()
 		else:
 			_advance_dialogue()

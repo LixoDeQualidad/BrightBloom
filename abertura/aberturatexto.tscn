@@ -44,10 +44,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -149.0
+offset_left = -133.0
 offset_top = -47.0
-offset_right = 146.0
-offset_bottom = 17.0
+offset_right = 137.0
+offset_bottom = 76.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -60,3 +60,11 @@ autowrap_mode = 3
 
 [node name="SoundPlayer" type="AudioStreamPlayer" parent="." unique_id=1381262065]
 bus = &"SFX"
+
+[node name="Label2" type="Label" parent="." unique_id=760533625]
+offset_left = 90.0
+offset_top = 179.0
+offset_right = 234.0
+offset_bottom = 202.0
+theme_override_fonts/font = ExtResource("4_font")
+text = "Pressione [espaço]"

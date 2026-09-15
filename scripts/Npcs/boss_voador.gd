@@ -7,7 +7,7 @@ enum State { IDLE, CHASE, DASH, RECOVER }
 @export var dash_duration: float = 0.2
 @export var dash_cooldown: float = 1.0
 @export var attack_range: float = 70.0
-@export var attack_damage: int = 15
+@export var attack_damage: int = 30
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var som_morrer: AudioStreamPlayer2D = $somDie
 @onready var health_bar: ProgressBar = $HealthBar
@@ -17,6 +17,7 @@ enum State { IDLE, CHASE, DASH, RECOVER }
 @export var max_health: int = 50
 var current_health: int = max_health
 var is_dead: bool = false
+var is_hurt: bool = false
 
 var player: Node2D = null
 var state: State = State.IDLE
@@ -37,6 +38,7 @@ func _ready() -> void:
 	detection_area.body_entered.connect(_on_detection_body_entered)
 	detection_area.body_exited.connect(_on_detection_body_exited)
 	hit_area.body_entered.connect(_on_hit_area_body_entered)
+	sprite.animation_finished.connect(_on_animation_finished)
 
 
 func _physics_process(delta: float) -> void:
@@ -65,10 +67,12 @@ func _chase(_delta: float) -> void:
 
 	if distance <= attack_range and cooldown_timer <= 0.0:
 		_start_dash()
+		return
 	else:
 		var direction := (player.global_position - global_position).normalized()
 		velocity = direction * speed
-	sprite.play("voo")
+	if not is_hurt:
+		sprite.play("voo")
 
 
 func _start_dash() -> void:
@@ -76,7 +80,7 @@ func _start_dash() -> void:
 	dash_timer = dash_duration
 	has_hit_this_dash = false
 	dash_direction = (player.global_position - global_position).normalized()
-	sprite.play("mergulho")
+	sprite.play("perseguir")
 
 
 func _do_dash(delta: float) -> void:
@@ -121,11 +125,18 @@ func _on_hit_area_body_entered(body: Node) -> void:
 func take_damage(amount: int = 10) -> void:
 	if is_dead:
 		return
-	sprite.play("hurt")
 	current_health = max(current_health - amount, 0)
 	health_bar.value = current_health
 	if current_health <= 0:
 		die()
+		return
+	is_hurt = true
+	sprite.play("hurt")
+
+
+func _on_animation_finished() -> void:
+	if sprite.animation == "hurt":
+		is_hurt = false
 
 func die() -> void:
 	is_dead = true

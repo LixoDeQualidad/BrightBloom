@@ -3101,7 +3101,7 @@ limit_bottom = 857
 
 [node name="Player" parent="." unique_id=1185032152 instance=ExtResource("5_7imfv")]
 visibility_layer = 512
-position = Vector2(68, 40)
+position = Vector2(323, 704)
 
 [node name="flor" parent="." unique_id=873353368 instance=ExtResource("10_lgdbv")]
 position = Vector2(1445, 326)

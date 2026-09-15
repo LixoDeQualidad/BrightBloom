@@ -6,22 +6,16 @@ extends CharacterBody2D
 
 @export var required_items: int = 5
 @export var quest_lines_incomplete: Array[String] = [
-	"Ei, viajante! Cuidado por onde passa.",
-	"Tenho encontrado coisas estranhas espalhadas pela 
-	floresta...garrafas, embalagens e sacolas.",
-	"Para quem as deixa aqui, pode parecer apenas lixo.",
-	"Para nós, pode significar perigo.",
-	"Encontre %d resíduos e traga-os até mim." ,
-	"Pode parecer pouco, mas cada pedaço retirado daqui ajuda 
-	a floresta a respirar novamente." 
+	"Salvadora, minhas flores estão precisando de ajuda.",
+	"Alguns resíduos foram deixados perto delas e estão atrapalhando o jardim.",
+	"Você poderia recolher %d resíduos ao redor das flores?",
+	"Assim, poderemos cuidar delas novamente."
 
 ]
 @export var quest_lines_complete: Array[String] = [
-	"Você conseguiu! 
-	Essa área da floresta está muito mais limpa.",
-	"Talvez uma única alma não consiga limpar uma floresta inteira...
-	 mas cada atitude conta.",
-	"Como prometido, aceite isto como agradecimento."
+	"Veja! As flores estão livres novamente.",
+	"Agora posso voltar a cuidar delas.",
+	"Obrigada, Salvadora. Cada cantinho protegido ajuda a floresta a continuar florescendo."
 
 ]
 

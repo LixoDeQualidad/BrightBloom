@@ -8,6 +8,7 @@
 size = Vector2(13, 9.5)
 
 [node name="Lixo" type="Area2D" unique_id=1064141708]
+top_level = true
 collision_mask = 3
 script = ExtResource("1_etav3")
 

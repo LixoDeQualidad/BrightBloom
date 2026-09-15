@@ -9,16 +9,22 @@ var visited_rooms: Dictionary = {}   # "Room_01" -> true
 var collected_items: Dictionary = {} # "item_id" -> true
 var opened_doors: Dictionary = {}    # "door_id" -> true
 
+var minimap: Control
+
 func _ready() -> void:
 	var transition_scene = preload("res://scene/transition.tscn")
 	transition_layer = transition_scene.instantiate()
-	add_child(transition_layer)  
+	add_child(transition_layer)
 	var minimap_scene = preload("res://scene/minimap.tscn")
-	var minimap = minimap_scene.instantiate()
+	minimap = minimap_scene.instantiate()
+	minimap.visible = false  # só aparece quando show_minimap() for chamado (ao entrar na Room_01)
 	var canvas = CanvasLayer.new()
 	canvas.layer = 50
 	canvas.add_child(minimap)
 	add_child(canvas)
+
+func show_minimap() -> void:
+	minimap.visible = true
 
 
 func _do_change_room(scene_path: String) -> void:

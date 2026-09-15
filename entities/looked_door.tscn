@@ -36,5 +36,6 @@ collision_mask = 3
 position = Vector2(84, 40)
 shape = SubResource("RectangleShape2D_sj5cf")
 
+[connection signal="body_entered" from="DetectorBloqueio" to="." method="_on_detector_body_entered"]
 [connection signal="body_exited" from="DetectorBloqueio" to="." method="_on_detector_bloqueio_body_exited"]
 [connection signal="body_entered" from="passagem" to="." method="_on_passagem_body_entered"]

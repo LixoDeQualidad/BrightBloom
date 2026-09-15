@@ -12,10 +12,13 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="." unique_id=617217593]
 layout_mode = 0
-offset_right = 302.0
+offset_right = 299.0
 offset_bottom = 198.0
 theme_override_fonts/font = ExtResource("1_mscl0")
-text = "Chegou ao final do Game! parabens!!!!
-UHUUU"
+text = "Chegou ao final da demo! parabens!!!!
+UHUUU
+Espero que tenha gostado.
+Logo poderá ter acesso ás novas atualizações pela
+nossa página na Itch.io"
 horizontal_alignment = 1
 vertical_alignment = 1

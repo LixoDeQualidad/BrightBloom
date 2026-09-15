@@ -8,6 +8,7 @@
 size = Vector2(13, 7.5)
 
 [node name="Lixo2" type="Area2D" unique_id=954592386]
+top_level = true
 collision_mask = 3
 script = ExtResource("1_g4lyu")
 
