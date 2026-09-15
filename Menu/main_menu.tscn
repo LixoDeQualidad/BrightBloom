@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://iie7dra831g8" path="res://Menu/main_menu.gd" id="1_2fwvj"]
 [ext_resource type="Texture2D" uid="uid://bmvqhsmr3xpax" path="res://Menu/Menu .jpg" id="3_0iwki"]
 [ext_resource type="FontFile" uid="uid://c8ebu8l3paf7e" path="res://Menu/Anaktoria/Anaktoria.otf" id="3_2fwvj"]
+[ext_resource type="Texture2D" uid="uid://dv6ekejmgciao" path="res://Menu/MenuMarcela.jpg" id="3_fw3rq"]
 [ext_resource type="Texture2D" uid="uid://bsj0iedd0ptuw" path="res://Menu/sprites_menu/brabuleta.png" id="4_0iwki"]
 
 [node name="Main Menu" type="Control" unique_id=1070726384]
@@ -17,6 +18,12 @@ script = ExtResource("1_2fwvj")
 position = Vector2(312, 181.50002)
 scale = Vector2(0.31875, 0.33796299)
 texture = ExtResource("3_0iwki")
+
+[node name="MenuMarcela" type="Sprite2D" parent="." unique_id=584825944]
+visible = false
+position = Vector2(312.5, 183.5)
+scale = Vector2(0.38562503, 0.3041667)
+texture = ExtResource("3_fw3rq")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=911392004]
 position = Vector2(312, 182)
