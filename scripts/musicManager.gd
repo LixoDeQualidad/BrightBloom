@@ -3,9 +3,9 @@ extends Node
 const MENU_MUSIC = preload("res://audio/caetano.mp3")
 const GAME_MUSIC = preload("res://audio/caetano.mp3")
 
-const FADE_DURATION := 1.5 # segundos
+const FADE_DURATION := 1.5
 const MAX_VOLUME_DB := 0.0
-const MIN_VOLUME_DB := -200.0
+const MIN_VOLUME_DB := -40.0
 
 var player_a: AudioStreamPlayer
 var player_b: AudioStreamPlayer
@@ -16,6 +16,9 @@ var current_stream: AudioStream = null
 var fade_tween: Tween
 
 func _ready():
+	_set_loop(MENU_MUSIC)
+	_set_loop(GAME_MUSIC)
+
 	player_a = _create_player()
 	player_b = _create_player()
 	active_player = player_a
@@ -28,6 +31,14 @@ func _create_player() -> AudioStreamPlayer:
 	add_child(p)
 	return p
 
+func _set_loop(stream: AudioStream):
+	if stream is AudioStreamOggVorbis:
+		stream.loop = true
+	elif stream is AudioStreamMP3:
+		stream.loop = true
+	elif stream is AudioStreamWAV:
+		stream.loop_mode = AudioStreamWAV.LOOP_FORWARD
+
 func play_menu_music():
 	_crossfade_to(MENU_MUSIC)
 
@@ -39,16 +50,14 @@ func stop_music():
 
 func _crossfade_to(stream: AudioStream):
 	if stream == current_stream:
-		return # já está tocando essa música (ou já parado)
+		return
 
 	current_stream = stream
 
 	if fade_tween and fade_tween.is_valid():
 		fade_tween.kill()
 
-	# player que estava tocando vira o que vai sumir (fade out)
 	var fading_out := active_player
-	# player inativo assume a nova música (fade in)
 	var fading_in := inactive_player
 
 	if stream != null:
@@ -67,6 +76,5 @@ func _crossfade_to(stream: AudioStream):
 		fading_out.stop()
 	)
 
-	# troca os papéis para a próxima chamada
 	active_player = fading_in
 	inactive_player = fading_out

@@ -5,7 +5,11 @@ extends CharacterBody2D
 # ---------- REFERÊNCIAS ----------
 @export var player_path: NodePath
 @export var dialogue_box_path: NodePath  
-@export var gravity := 900.0        # o CanvasLayer da sua dialogue box (script que você mandou)
+@export var gravity := 900.0 
+
+@export var joy_button_attack := 1     # "botão 1"
+@export var joy_button_jump := 2      # "botão 2"
+@export var joy_button_interact := 3   # "botão 3"       # o CanvasLayer da sua dialogue box (script que você mandou)
 
 @onready var player: CharacterBody2D = $"../Player"
 @onready var dialogue_box: CanvasLayer= $DialogueBox
@@ -94,23 +98,51 @@ func _physics_process(delta: float) -> void:
 
 # ---------- INPUT (E / Q / ESPAÇO-W duplo) ----------
 func _unhandled_input(event: InputEvent) -> void:
-	if not (event is InputEventKey) or not event.pressed or event.echo:
+	var action := _action_from_event(event)
+	if action == "":
 		return
-
-	var key: Key = event.physical_keycode
 
 	match state:
 		State.WAITING_INTERACT:
-			if key == KEY_E:
+			if action == "interact":
 				_on_action_success("interact")
 
 		State.WAITING_ATTACK:
-			if key == KEY_Q:
+			if action == "attack":
 				_on_action_success("attack")
 
 		State.WAITING_JUMP:
-			if key == KEY_SPACE or key == KEY_W:
+			if action == "jump":
 				_register_jump_press()
+
+
+func _action_from_event(event: InputEvent) -> String:
+	if event is InputEventKey:
+		if not event.pressed or event.echo:
+			return ""
+		match event.physical_keycode:
+			KEY_E:
+				return "interact"
+			KEY_Q:
+				return "attack"
+			KEY_SPACE, KEY_W:
+				return "jump"
+		return ""
+
+	if event is InputEventJoypadButton:
+		if not event.pressed:
+			return ""
+		var b: int = event.button_index
+		if b == joy_button_interact:
+			return "interact"
+		if b == joy_button_attack:
+			return "attack"
+		if b == joy_button_jump:
+			return "jump"
+		return ""
+
+	return ""
+
 
 
 func _register_jump_press() -> void:

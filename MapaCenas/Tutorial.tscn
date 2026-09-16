@@ -1980,7 +1980,6 @@ shape = SubResource("RectangleShape2D_ebum8")
 [node name="UI" parent="." unique_id=1033567640 instance=ExtResource("7_fmo5n")]
 
 [node name="PauseMenu" type="CanvasLayer" parent="." unique_id=407576943]
-visible = false
 script = ExtResource("8_daoor")
 
 [node name="ColorRect" type="ColorRect" parent="PauseMenu" unique_id=1816890468]
