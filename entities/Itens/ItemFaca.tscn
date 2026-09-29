@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://biiopjv15qe7f"]
+
+[ext_resource type="Script" uid="uid://cxbn7278fsbu4" path="res://scripts/Itens/tesoura.gd" id="1_aawdq"]
+[ext_resource type="Texture2D" uid="uid://1i12rly4duhw" path="res://sprites/Sprites/Itens/faca.png" id="2_1koe1"]
+[ext_resource type="AudioStream" uid="uid://dusyayq021mys" path="res://audio/efeito_1.mp3" id="3_egs6i"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4t4i1"]
+radius = 5.0
+height = 10.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rpiy"]
+atlas = ExtResource("2_1koe1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6nyfy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2rpiy")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Faca" type="Area2D" unique_id=226094837]
+collision_mask = 15
+script = ExtResource("1_aawdq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1465538342]
+shape = SubResource("CapsuleShape2D_4t4i1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=335153046]
+position = Vector2(1, -2)
+scale = Vector2(0.46875003, 0.53125)
+sprite_frames = SubResource("SpriteFrames_6nyfy")
+autoplay = "default"
+frame_progress = 0.6469601
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=159498011]
+stream = ExtResource("3_egs6i")
+bus = &"SFX"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

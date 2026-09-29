@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://6aaufjy06dwk"]
+
+[ext_resource type="AudioStream" uid="uid://dusyayq021mys" path="res://audio/efeito_1.mp3" id="1_5fjlo"]
+[ext_resource type="Script" uid="uid://54hhg742glyd" path="res://scripts/Itens/chave.gd" id="1_oms6f"]
+[ext_resource type="Texture2D" uid="uid://dqbvxm1vv67a0" path="res://sprites/Sprites/Itens/chave.png" id="2_mfgvi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xvf33"]
+radius = 6.0827627
+
+[node name="chave" type="Area2D" unique_id=1144433557]
+collision_mask = 3
+script = ExtResource("1_oms6f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1096328248]
+shape = SubResource("CircleShape2D_xvf33")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1098893221]
+stream = ExtResource("1_5fjlo")
+bus = &"SFX"
+
+[node name="Chave" type="Sprite2D" parent="." unique_id=396051339]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_mfgvi")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

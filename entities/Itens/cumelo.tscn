@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://plhpqy4xi0db"]
+
+[ext_resource type="Script" uid="uid://yhwcmlgqowb3" path="res://scripts/Itens/cumelo.gd" id="1_gva4o"]
+[ext_resource type="Texture2D" uid="uid://blyw4pgy6dn8i" path="res://sprites/Sprites/Itens/gumeloDobrando.png" id="1_ubb7m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gva4o"]
+atlas = ExtResource("1_ubb7m")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d17gi"]
+atlas = ExtResource("1_ubb7m")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tey57"]
+atlas = ExtResource("1_ubb7m")
+region = Rect2(128, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3u8a5"]
+atlas = ExtResource("1_ubb7m")
+region = Rect2(64, 0, 64, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fpncl"]
+atlas = ExtResource("1_ubb7m")
+region = Rect2(0, 0, 64, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ebum8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gva4o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d17gi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tey57")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3u8a5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fpncl")
+}],
+"loop": 0,
+"name": &"bounce",
+"speed": 9.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xvf33"]
+size = Vector2(56, 19)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebum8"]
+size = Vector2(40, 14)
+
+[node name="cumelo" type="Area2D" unique_id=1285268122]
+collision_mask = 3
+script = ExtResource("1_gva4o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=766339701]
+sprite_frames = SubResource("SpriteFrames_ebum8")
+animation = &"bounce"
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=445861382]
+position = Vector2(-4, 4.5)
+shape = SubResource("RectangleShape2D_xvf33")
+debug_color = Color(0.939523, 0.7282398, 0.9678753, 0.41960785)
+
+[node name="TopHitbox" type="Area2D" parent="." unique_id=626237385]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopHitbox" unique_id=1560483804]
+position = Vector2(-5, -8)
+shape = SubResource("RectangleShape2D_ebum8")
+debug_color = Color(0.795972, 0.40695274, 0.3342203, 0.41960785)
+
+[connection signal="body_entered" from="TopHitbox" to="." method="_on_top_hitbox_body_entered"]

@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://chfo80f6rnlvq"]
+
+[ext_resource type="Script" uid="uid://cddgjjnqssyro" path="res://scripts/Npcs/npc_5.gd" id="1_51cgk"]
+[ext_resource type="Texture2D" uid="uid://dd312xqukxsws" path="res://sprites/Sprites/Npcs/MinifolksForestAnimals/Outline/MiniWolf.png" id="2_smcdh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_agtov"]
+atlas = ExtResource("2_smcdh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yeqsr"]
+atlas = ExtResource("2_smcdh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lk07n"]
+atlas = ExtResource("2_smcdh")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wos24"]
+atlas = ExtResource("2_smcdh")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pfyk3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agtov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yeqsr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lk07n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wos24")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pfyk3"]
+size = Vector2(28, 13)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pfyk3"]
+radius = 50.635956
+
+[node name="Npc5" type="CharacterBody2D" unique_id=1371245625]
+script = ExtResource("1_51cgk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1278459133]
+position = Vector2(-1.9999998, -15)
+scale = Vector2(1.7499999, 1.5937501)
+sprite_frames = SubResource("SpriteFrames_pfyk3")
+autoplay = "default"
+frame_progress = 0.057847053
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=83329655]
+position = Vector2(-2, 2.5)
+shape = SubResource("RectangleShape2D_pfyk3")
+one_way_collision = true
+
+[node name="InteractionArea" type="Area2D" parent="." unique_id=762759775]
+visible = false
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea" unique_id=2045951814]
+top_level = true
+shape = SubResource("CircleShape2D_pfyk3")
+debug_color = Color(0.69803923, 0.9372549, 1, 0.28627452)
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_body_exited"]
