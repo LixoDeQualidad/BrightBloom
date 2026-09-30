@@ -15,13 +15,14 @@ offset_bottom = 200.0
 script = ExtResource("1_2fwvj")
 
 [node name="PrimeiroMenu" type="Sprite2D" parent="." unique_id=1316638981]
-position = Vector2(312, 181.50002)
-scale = Vector2(0.31875, 0.33796299)
+visible = false
+position = Vector2(312, 182.50002)
+scale = Vector2(0.31875, 0.3361111)
 texture = ExtResource("3_0iwki")
 
 [node name="1" type="Sprite2D" parent="." unique_id=353880063]
-position = Vector2(312.25, 184.5)
-scale = Vector2(0.3834375, 0.30750003)
+position = Vector2(311.75, 184.50002)
+scale = Vector2(0.3828125, 0.30750003)
 texture = ExtResource("3_fw3rq")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=911392004]
@@ -30,6 +31,7 @@ zoom = Vector2(0.49, 0.55)
 
 [node name="Label" type="Label" parent="." unique_id=1177248204]
 layout_mode = 0
+offset_top = 3.0
 offset_right = 619.0
 offset_bottom = 373.0
 theme_override_fonts/font = ExtResource("3_2fwvj")

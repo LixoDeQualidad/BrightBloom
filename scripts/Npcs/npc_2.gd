@@ -19,8 +19,8 @@ extends CharacterBody2D
 @export var quest_lines_complete: Array[String] = [
 	"Você conseguiu! 
 	Essa área da floresta está muito mais limpa.",
-	"Talvez uma única alma não consiga limpar uma floresta inteira...
-	 mas cada atitude conta.",
+	"Talvez uma única alma não consiga limpar uma 
+	floresta inteira... mas cada atitude conta.",
 	"Como prometido, aceite isto como agradecimento."
 
 ]

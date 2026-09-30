@@ -1511,7 +1511,7 @@ sources/3 = SubResource("TileSetAtlasSource_yq2u1")
 sources/0 = SubResource("TileSetAtlasSource_3srsl")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_01pbw"]
-size = Vector2(179, 36.5)
+size = Vector2(169, 151)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xvf33"]
 size = Vector2(22.5, 254)
@@ -1760,7 +1760,7 @@ target_scene_path = "res://MapaCenas/Sala1.tscn"
 target_spawn_point = "SpawnPoint_FromRoom03"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorToRoom01" unique_id=1989647089]
-position = Vector2(-37, 112)
+position = Vector2(-88, 117.5)
 shape = SubResource("RectangleShape2D_01pbw")
 
 [node name="flor" parent="." unique_id=873353368 instance=ExtResource("9_g124a")]
@@ -1790,7 +1790,7 @@ target_scene_path = "res://MapaCenas/Sala2.tscn"
 target_spawn_point = "SpawnPoint_FromRoom03"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorToRoom02" unique_id=1248147599]
-position = Vector2(213, 1065)
+position = Vector2(219, 1119)
 shape = SubResource("RectangleShape2D_01pbw")
 
 [node name="DoorToRoom04" type="Area2D" parent="." unique_id=1953724398]
@@ -1815,7 +1815,7 @@ top_level = true
 position = Vector2(752.5041, 1012.8345)
 
 [node name="SpawnPoint_FromRoom02" type="Marker2D" parent="." unique_id=1251496897]
-position = Vector2(161, 1010)
+position = Vector2(162, 1007)
 
 [node name="Trap" parent="." unique_id=911380858 instance=ExtResource("9_yf55v")]
 position = Vector2(341, -147)
@@ -1950,7 +1950,7 @@ flat = true
 [node name="ContagemLixo" parent="." unique_id=1587873765 instance=ExtResource("32_m8ijc")]
 
 [node name="SpawnPoint_FromRoom01" type="Marker2D" parent="." unique_id=240967627]
-position = Vector2(-14, 170)
+position = Vector2(5, 169)
 
 [node name="ArrowPlateLeft" type="Sprite2D" parent="." unique_id=1213810969]
 position = Vector2(355, 950)

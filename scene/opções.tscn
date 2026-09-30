@@ -30,13 +30,13 @@ grow_vertical = 2
 script = ExtResource("1_yy4o3")
 
 [node name="Menu" type="Sprite2D" parent="." unique_id=767433294]
-position = Vector2(137.5, 100.500015)
-scale = Vector2(0.15677083, 0.18611108)
+position = Vector2(137, 100.99999)
+scale = Vector2(0.15625, 0.1851852)
 texture = ExtResource("2_0y7xo")
 
 [node name="2" type="Sprite2D" parent="." unique_id=979705100]
-position = Vector2(137.50002, 102.49999)
-scale = Vector2(0.18812503, 0.16916668)
+position = Vector2(136.99998, 102.5)
+scale = Vector2(0.1875, 0.16916667)
 texture = ExtResource("3_5hfjt")
 
 [node name="VBoxContainer" type="HBoxContainer" parent="." unique_id=1949434182]
